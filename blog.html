@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — The Mad Monk</title>
+<meta name="description" content="Practical philosophy for people who have run out of external problems to solve. Drawn from 100+ books and a refusal to make spirituality boring.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0C0800;--bg2:#130E00;--gold:#C4830A;--gold-light:#E8A830;--white:#F0EEE8;--muted:#7A7468;--border:#251E0A;}
+body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 4rem;background:rgba(12,8,0,0.95);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border)}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;text-transform:uppercase}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-cta{color:var(--gold)!important;border:0.5px solid rgba(196,131,10,0.4);padding:0.5rem 1.2rem}
+.section-label{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15;color:var(--white);margin-bottom:1.5rem}
+.section-title em{font-style:italic;color:var(--gold)}
+
+.blog-hero{padding:9rem 4rem 5rem;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:end}
+.blog-hero-right{font-size:0.9rem;color:var(--muted);line-height:1.9}
+
+.featured-post{margin:0 4rem;display:grid;grid-template-columns:1fr 1fr;border:0.5px solid var(--border);text-decoration:none;transition:opacity 0.2s}
+.featured-post:hover{opacity:0.8}
+.featured-image{position:relative;overflow:hidden;aspect-ratio:4/3}
+.featured-image img{width:100%;height:100%;object-fit:cover;opacity:0.5;filter:grayscale(20%);transition:transform 0.4s}
+.featured-post:hover .featured-image img{transform:scale(1.03)}
+.featured-content{padding:3.5rem;display:flex;flex-direction:column;justify-content:center;background:var(--bg2)}
+.featured-tag{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.featured-title{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--white);line-height:1.2;margin-bottom:1.25rem}
+.featured-excerpt{font-size:0.88rem;color:var(--muted);line-height:1.85}
+.featured-arrow{display:inline-block;margin-top:2rem;font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold)}
+
+.blog-grid-section{padding:5rem 4rem;max-width:1200px;margin:0 auto}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border)}
+.blog-card{background:var(--bg);padding:2.5rem;text-decoration:none;display:block;transition:background 0.2s}
+.blog-card:hover{background:var(--bg2)}
+.blog-card-image{aspect-ratio:16/9;overflow:hidden;margin-bottom:1.75rem}
+.blog-card-image img{width:100%;height:100%;object-fit:cover;opacity:0.4;filter:grayscale(20%);transition:opacity 0.3s,transform 0.4s}
+.blog-card:hover .blog-card-image img{opacity:0.55;transform:scale(1.03)}
+.blog-date{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem}
+.blog-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--white);line-height:1.3;margin-bottom:0.75rem}
+.blog-excerpt{font-size:0.82rem;color:var(--muted);line-height:1.75}
+.blog-arrow{display:inline-block;margin-top:1.25rem;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)}
+
+footer{border-top:0.5px solid var(--border);padding:4rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;display:block;margin-bottom:1rem}
+.footer-tagline{font-size:0.8rem;color:var(--muted);line-height:1.7;max-width:220px}
+.footer-nav h4{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem}
+.footer-nav ul{list-style:none;display:flex;flex-direction:column;gap:0.75rem}
+.footer-nav a{font-size:0.82rem;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.footer-nav a:hover{color:var(--white)}
+.footer-bottom{border-top:0.5px solid var(--border);padding:1.5rem 4rem;display:flex;justify-content:space-between}
+.footer-copy{font-size:0.7rem;color:var(--muted)}
+
+@media(max-width:900px){
+nav{padding:1.2rem 1.5rem}.nav-links{display:none}
+.blog-hero{grid-template-columns:1fr;gap:2rem;padding:7rem 1.5rem 3rem}
+.featured-post{margin:0 1.5rem;grid-template-columns:1fr}
+.featured-image{aspect-ratio:16/9}
+.featured-content{padding:2rem}
+.blog-grid-section{padding:4rem 1.5rem}
+.blog-grid{grid-template-columns:1fr}
+footer{grid-template-columns:1fr;padding:3rem 1.5rem}
+.footer-bottom{padding:1.5rem;flex-direction:column;gap:0.5rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand">The Mad Monk</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="coaching.html">1:1 Coaching</a></li>
+    <li><a href="contact.html" class="nav-cta">Work With Me</a></li>
+  </ul>
+</nav>
+
+<div class="blog-hero">
+  <div>
+    <p class="section-label">The Blog</p>
+    <h1 class="section-title">Practical philosophy.<br><em>No fairy tales.</em></h1>
+  </div>
+  <div class="blog-hero-right">
+    Drawn from 100+ books, 8+ years of daily practice, and the one question worth asking: what does it actually mean to be awake inside your own life?
+  </div>
+</div>
+
+<a href="blog-post.html" class="featured-post">
+  <div class="featured-image">
+    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80" alt="Mountains at night">
+  </div>
+  <div class="featured-content">
+    <div class="featured-tag">Featured · August 2026</div>
+    <div class="featured-title">Why Zorba the Buddha is the Only Philosophy Worth Living</div>
+    <div class="featured-excerpt">Osho said the East produced Buddhas without Zorbas and the West produced Zorbas without Buddhas. He was right. Here is what the synthesis actually looks like in practice.</div>
+    <span class="featured-arrow">Read the full piece →</span>
+  </div>
+</a>
+
+<div class="blog-grid-section">
+  <div class="blog-grid">
+    <a href="blog.html" class="blog-card">
+      <div class="blog-card-image"><img src="https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=600&q=80" alt="Forest"></div>
+      <div class="blog-date">Coming soon</div>
+      <div class="blog-title">The Mind Is Not Your Enemy. It Is Your Uninvited Guest.</div>
+      <div class="blog-excerpt">Most meditation advice tells you to quiet the mind. That is the wrong goal entirely.</div>
+      <span class="blog-arrow">Read →</span>
+    </a>
+    <a href="blog.html" class="blog-card">
+      <div class="blog-card-image"><img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=600&q=80" alt="City lights"></div>
+      <div class="blog-date">Coming soon</div>
+      <div class="blog-title">You Have Everything. Why Does It Feel Like Nothing?</div>
+      <div class="blog-excerpt">The most successful people in the world are often the most privately empty.</div>
+      <span class="blog-arrow">Read →</span>
+    </a>
+    <a href="blog.html" class="blog-card">
+      <div class="blog-card-image"><img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=600&q=80" alt="Sunrise"></div>
+      <div class="blog-date">Coming soon</div>
+      <div class="blog-title">Twenty Minutes. What It Actually Does to a Human Being.</div>
+      <div class="blog-excerpt">Not the science. The lived experience of what a daily practice does over months and years.</div>
+      <span class="blog-arrow">Read →</span>
+    </a>
+    <a href="blog.html" class="blog-card">
+      <div class="blog-card-image"><img src="https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?w=600&q=80" alt="Lake reflection"></div>
+      <div class="blog-date">Coming soon</div>
+      <div class="blog-title">Osho Was Right About Almost Everything. Here Is What He Got Wrong.</div>
+      <div class="blog-excerpt">An honest accounting. Because no teacher deserves blind devotion.</div>
+      <span class="blog-arrow">Read →</span>
+    </a>
+    <a href="blog.html" class="blog-card">
+      <div class="blog-card-image"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=600&q=80" alt="Misty mountains"></div>
+      <div class="blog-date">Coming soon</div>
+      <div class="blog-title">How to Meditate When Your Mind Refuses to Cooperate</div>
+      <div class="blog-excerpt">A practical guide for intelligent, busy, skeptical people who keep failing at the simplest thing in the world.</div>
+      <span class="blog-arrow">Read →</span>
+    </a>
+    <a href="blog.html" class="blog-card">
+      <div class="blog-card-image"><img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&q=80" alt="Sunset"></div>
+      <div class="blog-date">Coming soon</div>
+      <div class="blog-title">The Witness. What It Is and Why It Changes Everything.</div>
+      <div class="blog-excerpt">One shift in perspective. One practice. Everything else follows from it.</div>
+      <span class="blog-arrow">Read →</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div><a href="index.html" class="footer-brand">The Mad Monk</a><p class="footer-tagline">Practical spirituality for those who want everything.</p></div>
+  <div class="footer-nav"><h4>Navigate</h4><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="events.html">Events</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div class="footer-nav"><h4>Follow</h4><ul><li><a href="https://instagram.com/themadmonk1" target="_blank">Instagram</a></li></ul></div>
+</footer>
+<div class="footer-bottom"><span class="footer-copy">© 2026 The Mad Monk</span></div>
+</body>
+</html>

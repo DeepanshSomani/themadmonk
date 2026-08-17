@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1:1 Coaching — The Mad Monk</title>
+<meta name="description" content="Private 1:1 coaching for those who are serious. A structured, accountable, deeply personal meditation practice built around your life.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0C0800;--bg2:#130E00;--gold:#C4830A;--gold-light:#E8A830;--white:#F0EEE8;--muted:#7A7468;--border:#251E0A;}
+body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 4rem;background:rgba(12,8,0,0.95);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border)}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;text-transform:uppercase}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{color:var(--gold)!important;border:0.5px solid rgba(196,131,10,0.4);padding:0.5rem 1.2rem}
+.btn-primary{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:1rem 2.2rem;border:none;cursor:pointer;text-decoration:none;transition:background 0.2s;display:inline-block}
+.btn-primary:hover{background:var(--gold-light)}
+.section-label{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15;color:var(--white);margin-bottom:1.5rem}
+.section-title em{font-style:italic;color:var(--gold)}
+hr.divider{border:none;border-top:0.5px solid var(--border)}
+
+.coaching-hero{min-height:80vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.coaching-hero-left{padding:9rem 4rem 5rem;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+.coaching-hero-right{position:relative;overflow:hidden}
+.coaching-hero-right img{width:100%;height:100%;object-fit:cover;opacity:0.25;filter:grayscale(20%)}
+.coaching-hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 30%)}
+
+.session-breakdown{padding:7rem 4rem;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start}
+.session-steps{}
+.session-step{display:flex;gap:2rem;padding:2rem 0;border-bottom:0.5px solid var(--border)}
+.session-step:first-child{padding-top:0}
+.session-step:last-child{border-bottom:none}
+.session-time{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold);min-width:80px;line-height:1.1}
+.session-info h4{font-size:0.85rem;font-weight:500;color:var(--white);margin-bottom:0.5rem}
+.session-info p{font-size:0.85rem;color:var(--muted);line-height:1.8}
+
+.apply-box{background:var(--bg2);border:0.5px solid var(--border);border-top:2px solid var(--gold);padding:3.5rem;position:sticky;top:8rem}
+.apply-box h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--white);margin-bottom:1rem}
+.apply-box p{font-size:0.88rem;color:var(--muted);line-height:1.85;margin-bottom:2rem}
+
+.details-grid{border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);display:grid;grid-template-columns:repeat(4,1fr)}
+.detail-cell{padding:3rem 2.5rem;border-right:0.5px solid var(--border)}
+.detail-cell:last-child{border-right:none}
+.detail-label{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem}
+.detail-val{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--white);line-height:1.2}
+
+.for-who{padding:7rem 4rem;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem}
+.for-who-col h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--white);margin-bottom:1.5rem}
+.for-who-col ul{list-style:none;display:flex;flex-direction:column;gap:1rem}
+.for-who-col li{font-size:0.88rem;color:var(--muted);line-height:1.75;padding-left:1.25rem;position:relative}
+.for-who-col li::before{content:'—';position:absolute;left:0;color:var(--gold)}
+
+footer{border-top:0.5px solid var(--border);padding:4rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;display:block;margin-bottom:1rem}
+.footer-tagline{font-size:0.8rem;color:var(--muted);line-height:1.7;max-width:220px}
+.footer-nav h4{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem}
+.footer-nav ul{list-style:none;display:flex;flex-direction:column;gap:0.75rem}
+.footer-nav a{font-size:0.82rem;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.footer-nav a:hover{color:var(--white)}
+.footer-bottom{border-top:0.5px solid var(--border);padding:1.5rem 4rem;display:flex;justify-content:space-between}
+.footer-copy{font-size:0.7rem;color:var(--muted)}
+
+@media(max-width:900px){
+nav{padding:1.2rem 1.5rem}.nav-links{display:none}
+.coaching-hero{grid-template-columns:1fr}
+.coaching-hero-right{display:none}
+.coaching-hero-left{padding:7rem 1.5rem 4rem}
+.session-breakdown{grid-template-columns:1fr;gap:3rem;padding:5rem 1.5rem}
+.apply-box{position:static}
+.details-grid{grid-template-columns:1fr 1fr}
+.detail-cell{padding:2rem}
+.for-who{grid-template-columns:1fr;gap:3rem;padding:5rem 1.5rem}
+footer{grid-template-columns:1fr;padding:3rem 1.5rem}
+.footer-bottom{padding:1.5rem;flex-direction:column;gap:0.5rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand">The Mad Monk</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="coaching.html">1:1 Coaching</a></li>
+    <li><a href="contact.html" class="nav-cta">Work With Me</a></li>
+  </ul>
+</nav>
+
+<div class="coaching-hero">
+  <div class="coaching-hero-left">
+    <p class="section-label">Private Coaching</p>
+    <h1 class="section-title">For those who are<br>done with<br><em>half-measures.</em></h1>
+    <p style="color:var(--muted);font-size:0.95rem;line-height:1.85;max-width:440px;margin-top:1rem">This is not a course. Not a membership. Not a group call. A private, structured, deeply personal practice — built around your life, your mind, and where you actually are right now.</p>
+  </div>
+  <div class="coaching-hero-right">
+    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=900&q=80" alt="Mountains">
+  </div>
+</div>
+
+<div class="details-grid">
+  <div class="detail-cell"><div class="detail-label">Sessions per week</div><div class="detail-val">3</div></div>
+  <div class="detail-cell"><div class="detail-label">Duration</div><div class="detail-val">35 to 40 min</div></div>
+  <div class="detail-cell"><div class="detail-label">Format</div><div class="detail-val">Video call</div></div>
+  <div class="detail-cell"><div class="detail-label">Type</div><div class="detail-val">1:1 private</div></div>
+</div>
+
+<div class="session-breakdown">
+  <div>
+    <p class="section-label">Each Session</p>
+    <h2 class="section-title" style="font-size:2rem">The <em>Structure</em></h2>
+    <div class="session-steps">
+      <div class="session-step">
+        <div class="session-time">10'</div>
+        <div class="session-info">
+          <h4>A Talk</h4>
+          <p>Drawing from the world's deepest traditions. Practical, not academic. Something you carry into your week.</p>
+        </div>
+      </div>
+      <div class="session-step">
+        <div class="session-time">20'</div>
+        <div class="session-info">
+          <h4>Guided Meditation</h4>
+          <p>Live, responsive, not a recording. Adapted to what is present for you that day.</p>
+        </div>
+      </div>
+      <div class="session-step">
+        <div class="session-time">10'</div>
+        <div class="session-info">
+          <h4>Debrief</h4>
+          <p>What came up, what shifted, what to watch for before the next session.</p>
+        </div>
+      </div>
+      <div class="session-step">
+        <div class="session-time">Daily</div>
+        <div class="session-info">
+          <h4>Independent Practice</h4>
+          <p>20 minutes on non-session days. Accountability built in. A curated selection of books shared along the way.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="apply-box">
+    <h3>The 30-Minute Conversation</h3>
+    <p>Before anything begins, we talk. Thirty minutes. You tell me where you are, what you have tried, and what you are looking for. I tell you whether I think I can help. If the answer is yes, we begin. No sales pitch.</p>
+    <a href="contact.html" class="btn-primary">Book the Conversation</a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="for-who">
+  <div class="for-who-col">
+    <h3>Who this is <em>for</em></h3>
+    <ul>
+      <li>Successful people who have run out of external problems to solve</li>
+      <li>People who have tried meditation before and found it did not stick</li>
+      <li>People who are skeptical of spirituality but suspect there is something in it</li>
+      <li>People who want results, not rituals</li>
+    </ul>
+  </div>
+  <div class="for-who-col">
+    <h3>Who this is <em>not</em> for</h3>
+    <ul>
+      <li>People looking for candles and chanting</li>
+      <li>People who want to be told what they want to hear</li>
+      <li>People who will not show up consistently</li>
+      <li>People who are not ready to look inward honestly</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <div><a href="index.html" class="footer-brand">The Mad Monk</a><p class="footer-tagline">Practical spirituality for those who want everything.</p></div>
+  <div class="footer-nav"><h4>Navigate</h4><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="events.html">Events</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div class="footer-nav"><h4>Follow</h4><ul><li><a href="https://instagram.com/themadmonk1" target="_blank">Instagram</a></li></ul></div>
+</footer>
+<div class="footer-bottom"><span class="footer-copy">© 2026 The Mad Monk</span></div>
+</body>
+</html>

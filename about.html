@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — The Mad Monk</title>
+<meta name="description" content="The Mad Monk is built on one idea: you do not have to choose between living fully and living consciously.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0C0800;--bg2:#130E00;--bg3:#1C1400;--gold:#C4830A;--gold-light:#E8A830;--white:#F0EEE8;--muted:#7A7468;--border:#251E0A;}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 4rem;background:rgba(12,8,0,0.95);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border)}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;letter-spacing:0.2em;color:var(--gold);text-decoration:none;text-transform:uppercase}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{color:var(--gold)!important;border:0.5px solid rgba(196,131,10,0.4);padding:0.5rem 1.2rem}
+.btn-primary{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:1rem 2.2rem;border:none;cursor:pointer;text-decoration:none;transition:background 0.2s;display:inline-block}
+.btn-primary:hover{background:var(--gold-light)}
+.btn-ghost{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--white);background:transparent;padding:1rem 2.2rem;border:0.5px solid rgba(240,238,232,0.2);cursor:pointer;text-decoration:none;transition:border-color 0.2s;display:inline-block}
+hr.divider{border:none;border-top:0.5px solid var(--border);margin:0 4rem}
+.section-label{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15;color:var(--white);margin-bottom:1.5rem}
+.section-title em{font-style:italic;color:var(--gold)}
+
+.about-hero{min-height:80vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.about-hero-left{padding:9rem 4rem 5rem;display:flex;flex-direction:column;justify-content:flex-end}
+.about-hero-right{position:relative;overflow:hidden}
+.about-hero-right img{width:100%;height:100%;object-fit:cover;opacity:0.3;filter:grayscale(20%)}
+.about-hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 30%)}
+
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border)}
+.stat-cell{padding:3rem;border-right:0.5px solid var(--border);text-align:center}
+.stat-cell:last-child{border-right:none}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.5rem}
+.stat-label{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted)}
+
+.about-body{max-width:1200px;margin:0 auto;padding:7rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start}
+.about-body p{font-size:0.95rem;color:var(--muted);line-height:1.95;margin-bottom:1.5rem}
+
+.philosophy-strip{background:var(--bg2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:7rem 4rem}
+.philosophy-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.philosophy-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:300;font-style:italic;line-height:1.55;color:var(--white);border-left:1.5px solid var(--gold);padding-left:2rem}
+.philosophy-body{font-size:0.9rem;color:var(--muted);line-height:1.95}
+.philosophy-body p{margin-bottom:1.25rem}
+
+.not-section{padding:7rem 4rem;max-width:1200px;margin:0 auto}
+.not-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);margin-top:3.5rem}
+.not-card{background:var(--bg);padding:3rem 2.5rem}
+.not-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--white);margin-bottom:1rem}
+.not-desc{font-size:0.85rem;color:var(--muted);line-height:1.85}
+
+footer{border-top:0.5px solid var(--border);padding:4rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;display:block;margin-bottom:1rem}
+.footer-tagline{font-size:0.8rem;color:var(--muted);line-height:1.7;max-width:220px}
+.footer-nav h4{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem}
+.footer-nav ul{list-style:none;display:flex;flex-direction:column;gap:0.75rem}
+.footer-nav a{font-size:0.82rem;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.footer-nav a:hover{color:var(--white)}
+.footer-bottom{border-top:0.5px solid var(--border);padding:1.5rem 4rem;display:flex;justify-content:space-between}
+.footer-copy{font-size:0.7rem;color:var(--muted)}
+
+@media(max-width:900px){
+nav{padding:1.2rem 1.5rem}
+.nav-links{display:none}
+.about-hero{grid-template-columns:1fr}
+.about-hero-right{display:none}
+.about-hero-left{padding:7rem 1.5rem 4rem}
+.stats-strip{grid-template-columns:1fr 1fr}
+.stat-cell{padding:2rem}
+hr.divider{margin:0 1.5rem}
+.about-body{grid-template-columns:1fr;gap:0;padding:5rem 1.5rem}
+.philosophy-strip{padding:5rem 1.5rem}
+.philosophy-inner{grid-template-columns:1fr;gap:3rem}
+.not-section{padding:5rem 1.5rem}
+.not-grid{grid-template-columns:1fr}
+footer{grid-template-columns:1fr;padding:3rem 1.5rem}
+.footer-bottom{padding:1.5rem;flex-direction:column;gap:0.5rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand">The Mad Monk</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="coaching.html">1:1 Coaching</a></li>
+    <li><a href="contact.html" class="nav-cta">Work With Me</a></li>
+  </ul>
+</nav>
+
+<div class="about-hero">
+  <div class="about-hero-left">
+    <p class="section-label">About</p>
+    <h1 class="section-title">Not a guru.<br>Not a therapist.<br><em>Something else.</em></h1>
+    <p style="color:var(--muted);font-size:0.95rem;line-height:1.85;max-width:440px;margin-top:1rem">Built on one idea that most spiritual traditions refuse to entertain: you do not have to choose between the world and your inner life.</p>
+  </div>
+  <div class="about-hero-right">
+    <img src="https://images.unsplash.com/photo-1533000759938-aa0ba70beceb?w=900&q=80" alt="Mountains">
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stat-cell"><div class="stat-num">8+</div><div class="stat-label">Years of daily practice</div></div>
+  <div class="stat-cell"><div class="stat-num">100+</div><div class="stat-label">Books on consciousness</div></div>
+  <div class="stat-cell"><div class="stat-num">3</div><div class="stat-label">Countries lived in</div></div>
+  <div class="stat-cell"><div class="stat-num">0</div><div class="stat-label">Fairy tales told</div></div>
+</div>
+
+<div class="about-body">
+  <div>
+    <p class="section-label">The Story</p>
+    <h2 class="section-title" style="font-size:2rem">Zorba the <em>Buddha</em></h2>
+  </div>
+  <div>
+    <p>The Mad Monk is built on one idea that most spiritual traditions refuse to entertain: you do not have to choose between the world and your inner life.</p>
+    <p>Osho called it Zorba the Buddha. The fully alive human being who is also fully awake. Not the ascetic who renounces desire. Not the hedonist who is enslaved by it. The one who engages everything — money, love, ambition, pleasure — with one foot always in the witnessing silence.</p>
+    <p>That is the only philosophy worth living. And it is the only one taught here.</p>
+    <p>This is not woo-woo. It is drawn from 8+ years of daily practice, 100+ books across every major tradition, and the simple observation that the most successful people in the world are often the least at peace in it.</p>
+    <br>
+    <a href="coaching.html" class="btn-primary">Work With Me</a>
+  </div>
+</div>
+
+<div class="philosophy-strip">
+  <div class="philosophy-inner">
+    <div class="philosophy-quote">"Zorba died looking at trees. Not at God. Not in prayer. Just — present, until the last second."</div>
+    <div class="philosophy-body">
+      <p>That is the standard. Not enlightenment as an escape from life. Enlightenment as the fullest possible engagement with it.</p>
+      <p>Kazantzakis wrote Zorba as the most alive person he had ever encountered. Osho read Kazantzakis and said: this is the other half of the Buddha. Put them together and you have something the world has never quite seen.</p>
+      <p>The Mad Monk exists to make that synthesis practical, accessible, and honest.</p>
+    </div>
+  </div>
+</div>
+
+<div class="not-section">
+  <p class="section-label">Clarity</p>
+  <h2 class="section-title">What this is <em>not</em></h2>
+  <div class="not-grid">
+    <div class="not-card">
+      <div class="not-title">Not religion</div>
+      <div class="not-desc">No belief system required. No tradition pushed. What works is kept. What does not is discarded.</div>
+    </div>
+    <div class="not-card">
+      <div class="not-title">Not therapy</div>
+      <div class="not-desc">This is not about processing the past. It is about building a relationship with the present moment that actually changes how you live.</div>
+    </div>
+    <div class="not-card">
+      <div class="not-title">Not an app</div>
+      <div class="not-desc">Twenty minutes of real practice changes more than six months of passive listening. This requires your actual presence.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div><a href="index.html" class="footer-brand">The Mad Monk</a><p class="footer-tagline">Practical spirituality for those who want everything.</p></div>
+  <div class="footer-nav"><h4>Navigate</h4><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="events.html">Events</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div class="footer-nav"><h4>Follow</h4><ul><li><a href="https://instagram.com/themadmonk1" target="_blank">Instagram</a></li></ul></div>
+</footer>
+<div class="footer-bottom"><span class="footer-copy">© 2026 The Mad Monk</span></div>
+</body>
+</html>
